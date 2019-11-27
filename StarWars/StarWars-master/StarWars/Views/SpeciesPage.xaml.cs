@@ -1,20 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using StarWars.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace StarWars.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SpeciesPage : ContentPage
     {
+        SpeciesViewModel viewModel;
+
         public SpeciesPage()
         {
             InitializeComponent();
+
+            viewModel = new SpeciesViewModel();
+
+            BindingContext = viewModel;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (viewModel.Species.Count == 0)
+                viewModel.LoadItemsCommand.Execute(null);
         }
     }
 }
+
+

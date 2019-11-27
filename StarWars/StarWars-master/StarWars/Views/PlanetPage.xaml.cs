@@ -1,20 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using StarWars.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace StarWars.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlanetPage : ContentPage
     {
+        PlanetViewModel viewModel;
+
         public PlanetPage()
         {
             InitializeComponent();
+
+            viewModel = new PlanetViewModel();
+
+            BindingContext = viewModel;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (viewModel.Planets.Count == 0)
+                viewModel.LoadItemsCommand.Execute(null);
         }
     }
 }

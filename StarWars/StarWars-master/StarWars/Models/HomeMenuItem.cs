@@ -6,8 +6,9 @@ namespace StarWars.Models
 {
     public enum MenuItemType
     {
-        Browse,
-        About
+        People,
+        Planets,
+        Species
     }
     public class HomeMenuItem
     {

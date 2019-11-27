@@ -12,6 +12,7 @@
                         <Label Text="{Binding name}" FontSize="Title" TextColor="Black" />
                         <Label Text="{Binding birth_year}" FontSize="Subtitle"  TextColor="DarkGray" />
                         <Label Text="{Binding gender}" FontSize="Subtitle"  TextColor="DarkGray" />
+                        <Label Text="{Binding skin_color}" FontSize="Subtitle"  TextColor="DarkGray" />
                     </StackLayout>
 
                 </DataTemplate>
